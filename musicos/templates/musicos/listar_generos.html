@@ -1,0 +1,28 @@
+{% extends 'musicos/base.html' %}
+
+{% block content %}
+
+  <h1 class="text-center my-5">Listado de géneros musicales</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for genero in generos %}
+        <tr>
+          <td>{{ genero.nombre }}</td>
+          <td>
+            <a href="{% url 'musicos:editar_genero' genero.pk %}" class="btn btn-primary mr-2">Editar</a>
+            <a href="{% url 'musicos:eliminar_genero' genero.pk %}" class="btn btn-danger">Eliminar</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-end my-5">
+    <a href="{% url 'musicos:agregar_genero' %}" class="btn btn-success">Agregar género</a>
+  </div>
+{% endblock %}

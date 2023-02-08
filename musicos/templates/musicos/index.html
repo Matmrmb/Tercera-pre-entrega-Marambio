@@ -1,0 +1,52 @@
+{% extends 'musicos/base.html' %}
+
+{% block content %}
+  <h1 class="text-center my-5">Bienvenido a Musician Finder</h1>
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <div class="card-header">
+          Géneros
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a href="{% url 'musicos:listar_generos' %}">Ver géneros</a>
+          </li>
+          <li class="list-group-item">
+            <a href="{% url 'musicos:agregar_genero' %}">Agregar género</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <div class="card-header">
+          Instrumentos
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a href="{% url 'musicos:listar_instrumentos' %}">Ver instrumentos</a>
+          </li>
+          <li class="list-group-item">
+            <a href="{% url 'musicos:agregar_instrumento' %}">Agregar instrumento</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <div class="card-header">
+          Bandas
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a href="{% url 'musicos:listar_bandas' %}">Ver bandas</a>
+          </li>
+          <li class="list-group-item">
+            <a href="{% url 'musicos:agregar_banda' %}">Agregar banda</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}

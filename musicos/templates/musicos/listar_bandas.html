@@ -1,0 +1,27 @@
+{% extends 'musicos/base.html' %}
+
+{% block content %}
+  <h1 class="text-center my-5">Listado de Bandas</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for banda in bandas %}
+        <tr>
+          <td>{{ banda.nombre }}</td>
+          <td>
+            <a class="btn btn-primary btn-sm mr-2" href="{% url 'musicos:editar_banda' banda.pk %}">Editar</a>
+            <a class="btn btn-danger btn-sm" href="{% url 'musicos:eliminar_banda' banda.pk %}">Eliminar</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="text-center">
+    <a class="btn btn-success my-3" href="{% url 'musicos:agregar_banda' %}">Agregar Banda</a>
+  </div>
+{% endblock %}

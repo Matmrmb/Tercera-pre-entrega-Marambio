@@ -1,0 +1,30 @@
+{% extends 'musicos/base.html' %}
+
+{% block title %}Listar Instrumentos{% endblock %}
+
+{% block content %}
+
+  <h1 class="text-center my-5">Listar Instrumentos</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for instrumento in instrumentos %}
+        <tr>
+          <td>{{ instrumento.nombre }}</td>
+          <td>
+            <a href="{% url 'musicos:editar_instrumento' instrumento.pk %}" class="btn btn-warning btn-sm mr-2">Editar</a>
+            <a href="{% url 'musicos:eliminar_instrumento' instrumento.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="text-center">
+    <a href="{% url 'musicos:agregar_instrumento' %}" class="btn btn-primary my-3">Agregar Instrumento</a>
+  </div>
+{% endblock %}
